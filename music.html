@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="templatemo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>VibeSphere - Entertain, Educate, Energize</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
+                          <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                  
+                     <!-- ***** Search Start ***** -->
+<div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
+  <form id="search" action="#">
+    <input 
+      type="text" 
+      placeholder="Type Something" 
+      id="searchText" 
+      name="searchKeyword" 
+      onkeyup="filterContent()" 
+      style="
+        padding: 10px 20px; 
+        border-radius: 50px; 
+        border: 2px solid #ccc; 
+        outline: none; 
+        font-size: 16px; 
+        transition: border 0.3s ease;
+        width: 250px;
+      " 
+      onfocus="this.style.borderColor='#007bff'" 
+      onblur="this.style.borderColor='#ccc'"
+    />
+    <i class="fa fa-search" style="position: absolute; right: 15px; top: 12px;"></i>
+  </form>
+</div>
+<!-- ***** Search End ***** -->
+
+<!-- Placeholder for results message -->
+<div id="resultMessage" style="margin-left: 100px; padding-top: 10px; font-size: 16px;"></div>
+
+<script>
+  const availableLinks = {
+    "brain buster": "brain.html",
+    "science": "science.html",
+    "music art": "music.html",
+    "virtual world": "virtual.html",
+    "maths": "maths.html",
+    "global": "global.html",
+    "shooting": "shooting.html",
+    "racing": "racing.html",
+    "go-solo": "gosolo.html"
+  };
+
+  function filterContent() {
+    const searchText = document.getElementById("searchText").value.toLowerCase();
+    const resultMessage = document.getElementById("resultMessage");
+
+    // Check if there's a match in the available links
+    if (availableLinks[searchText]) {
+      resultMessage.innerHTML = `Redirecting to <a href="${availableLinks[searchText]}" target="_blank">${searchText}</a>...`;
+      window.location.href = availableLinks[searchText];
+    } else if (searchText.trim() !== "") {
+      resultMessage.innerHTML = "No results found. Please try another search.";
+    } else {
+      resultMessage.innerHTML = "";
+    }
+  }
+</script>
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html" >Home</a></li>
+                      <li><a href="brain.html">Mind Maze</a></li>
+                      <li><a href="Virtual.html">Virtual Frontiers</a></li>
+                      <li><a href="music.html" class="active">Rhythm Realms</a></li>
+                      <li><a href="science.html">SciQuest</a></li>
+                  </ul>   
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <div class="page-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>VibeSphere</h6>
+          <h2>Discover Some Music Art in Gaming</h2>
+          <span><a href="index.html" target="_blank" >Home > </a>Music Art</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="featured-explore">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="owl-features owl-carousel">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/music1.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Chrome Music Lab</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://musiclab.chromeexperiments.com/">@ChromeMusic</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/blob.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Blob Opera</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://artsandculture.google.com/experiment/blob-opera/AAHWrq360NcGbw?hl=en">@BlobOpera</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/isle.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Isle of Tune</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://www.isleoftune.com/">@isleoftune</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/paptap.png" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Patatap</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://patatap.com/">@Patatap</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="discover-items">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <div class="line-dec"></div>
+            <h2>Discover Some Of More Musical <em>Games</em>.</h2>
+          </div>
+        </div>
+        <div class="col-lg-7">
+            <form id="search-form" name="gs" method="submit" role="search" action="#">
+              <div class="row">
+                <div class="col-lg-3">
+                  <fieldset>
+                      <input type="text" name="keyword" class="searchText" placeholder="Type Something..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-3">
+                  <fieldset>
+                      <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option selected>All Categories</option>
+                          <option type="checkbox" name="option1" value="Music">Music</option>
+                          <option value="Digital">Digital</option>
+                          <option value="Blockchain">Blockchain</option>
+                          <option value="Virtual">Virtual</option>
+                      </select>
+                  </fieldset>
+                </div>
+                <div class="col-lg-3">
+                  <fieldset>
+                      <select name="Price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option selected>Available</option>
+                          <option value="Ending-Soon">Ending Soon</option>
+                          <option value="Coming-Soon">Coming Soon</option>
+                          <option value="Closed">Closed</option>
+                      </select>
+                  </fieldset>
+                </div>
+              <div class="col-lg-3">                        
+                <fieldset>
+                    <button class="main-button">Search</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="discover-items py-5">
+            <div class="container">
+              <div class="row g-4">
+                <!-- Game 1: Peak -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Incredibox.webp" alt="Incredibox" class="card-img-top rounded mb-3">
+                    <h4>Incredibox</h4>
+                    <p>Play Online<br><strong><a href="https://www.incredibox.com/" target="_blank">@Incredibox</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 2: Happy Neuron -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Virtual Piano.jpg" alt="Virtual Piano" class="card-img-top rounded mb-3">
+                    <h4>Virtual Piano</h4>
+                    <p>Play Online<br><strong><a href="https://virtualpiano.net/" target="_blank">@VirtualPiano</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 3: Braingle -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Music Match Memory Game.jpg" alt="Music Match Memory Game" class="card-img-top rounded mb-3">
+                    <h4>Music Match Memory Game</h4>
+                    <p>Play Online<br><strong><a href="https://wordwall.net/resource/10113404/music/musical-instrument-memory-game" target="_blank">@Music Match Memory Game</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 4: Brain Test: Tricky Puzzles -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Colorfy.jpg" alt="Colorfy" class="card-img-top rounded mb-3">
+                    <h4>Colorfy</h4>
+                    <p>Play Online<br><strong><a href="https://www.coloringonline.com/" target="_blank">@Colorfy</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 5: Stimulation Clicker -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Silk – Interactive Generative Art.jpg" alt="Silk – Interactive Generative Art" class="card-img-top rounded mb-3">
+                    <h4>Silk – Interactive Generative Art</h4>
+                    <p>Play Online<br><strong><a href="http://weavesilk.com/" target="_blank">@Silk – Interactive Generative Art</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 6: Arkadium's Brain Games -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Groove Pizza.jpg" alt="Groove Pizza" class="card-img-top rounded mb-3">
+                    <h4>Groove Pizza</h4>
+                    <p>Play Online<br><strong><a href="https://apps.musedlab.org/groovepizza/" target="_blank">@Groove Pizza</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 6: Arkadium's Brain Games -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-3">
+                      <img src="assets/images/BeepBox.jpg" alt="BeepBox" class="card-img-top rounded mb-3">
+                      <h4>BeepBox</h4>
+                      <p>Play Online<br><strong><a href="https://www.beepbox.co/#9n31s0k0l00e03t2ma7g0fj07r1i0o432T7v1u28f10s4q011d08H_--D---ZBLRS-Sh8IbE0T5v1u50f0qwx10p511d08H-JJAArrqiih999h0E1b6T1v1u65f0q0x10t51d08A1F2B9Q00d0Pfc47E3b662878T4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0b4h400000000h4g000000014h000000004h400000000p16000000" target="_blank">@BeepBox</a></strong></p>
+                      <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-3">
+                      <img src="assets/images/YouDJ.jpg" alt="DJ Games by YouDJ" class="card-img-top rounded mb-3">
+                      <h4>DJ Games by YouDJ</h4>
+                      <p>Play Online<br><strong><a href="https://you.dj/free-dj-software" target="_blank">@YouDJ</a></strong></p>
+                      <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="top-seller">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h2>Musical Art: "Enhancing Cognitive Skills and Emotional Intelligence"</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Boost Memory -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>1.</h4>
+                    <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Boosts Memory and Recall</h6>
+                    <a href="https://www.health.harvard.edu/mind-and-mood/music-can-boost-memory-and-mood" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Delayed Aging -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>2.</h4>
+                    <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Enhances Problem-Solving Skills</h6>
+                    <a href="https://www.youngsproutstherapy.com/post/music-therapy-for-mental-health-techniques-to-tackle-behavioral-issues#:~:text=Improvisation,issues%20and%20improving%20interpersonal%20relationships." target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Problem-Solving Powers -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>3.</h4>
+                    <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Fosters Creativity and Innovation</h6>
+                    <a href="https://immunizenevada.org/art-and-music-therapy-emotional-healing-through-creative-expression/" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Stress Reduction -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>4.</h4>
+                    <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Improves Focus and Attention</h6>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10221503/#:~:text=Passive%20music%20therapy%20improves%20academic,RecordID=288226" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Fun and Engaging -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>5.</h4>
+                    <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Strengthens Emotional Regulation</h6>
+                    <a href="https://www.musictherapyworks.co.uk/relaxation-and-emotional-regulation#:~:text=Music%20Therapy%20Works%20/%20Additional%20&Training%20Services%20/%20Relaxation%20and%20Emotional%20Regulation&text=Music%20therapy%20sessions%20promote%20psychological,experiences%20to%20increase%20self%2Dawareness" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>6.</h4>
+                  <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Encourages Logical Thinking</h6>
+                  <a href="https://www.music-lessons.ca/music-improves-creativity-problem-solving-logical-and-mathematical-thinking-also-increase-pattern-recognition/?srsltid=AfmBOorZsbuMsMeAFaBFrFaaprsbYZhSIgw1U7_aeTVDHpgt2GzOxoSe" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Problem-Solving Powers -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>7.</h4>
+                  <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Promotes Multisensory Integration</h6>
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9470688/" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Stress Reduction -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>8.</h4>
+                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Develops Fine Motor Skills</h6>
+                  <a href="https://www.austmta.org.au/about-us/what-is-mt/#:~:text=Improve%20gross%20motor%20function%20and%20control%20%C2%B7,your%20arms%20legs%2C%20feet%2C%20or%20entire%20body." target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="item text-center">
+                <h4>9.</h4>
+                <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                <h6>Encourages Collaboration and Teamwork</h6>
+                <a href="https://www.chatterbox.com.au/health-and-well-being/benefits-of-music-therapy-for-children/#:~:text=Music%20therapy%20encourages%20communication%20and,cognitive%20development%20and%20academic%20performance." target="_blank">
+                    <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="item text-center">
+              <h4>10.</h4>
+              <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+              <h6>Stimulates Neuroplasticity</h6>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7613141/#:~:text=Music%2C%20with%20its%20multimodal%20activation,of%20neurorehabilitation%20using%20this%20rationale." target="_blank">
+                  <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+              </a>
+          </div>
+      </div>      
+        </div>
+    </div>
+</div>
+
+<!-- CSS for styling -->
+<style>
+    .section-heading h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .line-dec {
+        width: 50px;
+        height: 2px;
+        background-color: #000;
+        margin: 10px auto;
+    }
+
+    .item h4 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .item h6 {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .item a {
+        font-size: 16px;
+        color: #007bff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .item a:hover {
+        text-decoration: underline;
+    }
+
+    .item img {
+        margin-right: 10px;
+    }
+
+    .col-lg-3 {
+        padding: 15px;
+    }
+
+    .mb-4 {
+        margin-bottom: 30px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+
+
+           
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright © 2025 <a href="index.html">VibeSphere - Entertain, Educate, Energize.</a> All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

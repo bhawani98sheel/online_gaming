@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="templatemo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>VibeSphere - Entertain, Educate, Energize</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
+                          <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                  
+                     <!-- ***** Search Start ***** -->
+<div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
+  <form id="search" action="#">
+    <input 
+      type="text" 
+      placeholder="Type Something" 
+      id="searchText" 
+      name="searchKeyword" 
+      onkeyup="filterContent()" 
+      style="
+        padding: 10px 20px; 
+        border-radius: 50px; 
+        border: 2px solid #ccc; 
+        outline: none; 
+        font-size: 16px; 
+        transition: border 0.3s ease;
+        width: 250px;
+      " 
+      onfocus="this.style.borderColor='#007bff'" 
+      onblur="this.style.borderColor='#ccc'"
+    />
+    <i class="fa fa-search" style="position: absolute; right: 15px; top: 12px;"></i>
+  </form>
+</div>
+<!-- ***** Search End ***** -->
+
+<!-- Placeholder for results message -->
+<div id="resultMessage" style="margin-left: 100px; padding-top: 10px; font-size: 16px;"></div>
+
+<script>
+  const availableLinks = {
+    "br": "brain.html",
+    "sci": "science.html",
+    "mus": "music.html",
+    "vir": "virtual.html",
+    "math": "math.html",
+    "glo": "global.html",
+    "sho": "shoot.html",
+    "rac": "race.html",
+    "gos": "gosolo.html"
+  };
+
+  function filterContent() {
+    const searchText = document.getElementById("searchText").value.toLowerCase();
+    const resultMessage = document.getElementById("resultMessage");
+
+    // Check if there's a match in the available links
+    if (availableLinks[searchText]) {
+      resultMessage.innerHTML = `Redirecting to <a href="${availableLinks[searchText]}" target="_blank">${searchText}</a>...`;
+      window.location.href = availableLinks[searchText];
+    } else if (searchText.trim() !== "") {
+      resultMessage.innerHTML = "No results found. Please try another search.";
+    } else {
+      resultMessage.innerHTML = "";
+    }
+  }
+</script>
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="brain.html">Mind Maze</a></li>
+                      <li><a href="Virtual.html"  class="active">Virtual Frontiers</a></li>
+                      <li><a href="music.html">Rhythm Realms</a></li>
+                      <li><a href="science.html">SciQuest</a></li>
+                  </ul>   
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <div class="page-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>VibeSphere</h6>
+          <h2>Dive into the Virtual World</h2>
+          <span><a href="index.html" target="_blank" >Home > </a>Virtual World</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="featured-explore">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="owl-features owl-carousel">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/download.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Among Us</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://store.steampowered.com/app/945360/Among_Us/">@Among_Us</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/kids.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Minecraft</h4>
+                      <span class="author">
+                        <img src="assets/images/mine.png" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://www.minecraft.net/en-us/about-minecraft">@Minecraft</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/brainpop.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>BrainPOP Games</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://www.brainpop.com/">@brainpop</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/fortnite.jpg" alt="" style="border-radius: 20px;">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4>Fortnite</h4>
+                      <span class="author">
+                        <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <h6>Play Online<br><a href="https://www.fortnite.com/?lang=en-US">@Fortnite</a></h6>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="discover-items">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <div class="line-dec"></div>
+            <h2>The Ultimate Gamer's<em>Paradise</em>.</h2>
+          </div>
+        </div>
+        <div class="col-lg-7">
+            <form id="search-form" name="gs" method="submit" role="search" action="#">
+              <div class="row">
+                <div class="col-lg-3">
+                  <fieldset>
+                      <input type="text" name="keyword" class="searchText" placeholder="Type Something..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-3">
+                  <fieldset>
+                      <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option selected>All Categories</option>
+                          <option type="checkbox" name="option1" value="Music">Music</option>
+                          <option value="Digital">Digital</option>
+                          <option value="Blockchain">Blockchain</option>
+                          <option value="Virtual">Virtual</option>
+                      </select>
+                  </fieldset>
+                </div>
+                <div class="col-lg-3">
+                  <fieldset>
+                      <select name="Price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option selected>Available</option>
+                          <option value="Ending-Soon">Ending Soon</option>
+                          <option value="Coming-Soon">Coming Soon</option>
+                          <option value="Closed">Closed</option>
+                      </select>
+                  </fieldset>
+                </div>
+              <div class="col-lg-3">                        
+                <fieldset>
+                    <button class="main-button">Search</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="discover-items py-5">
+            <div class="container">
+              <div class="row g-4">
+                <!-- Game 1: Peak -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/robo.jpg" alt="Peak" class="card-img-top rounded mb-3">
+                    <h4>Roblox</h4>
+                    <p>Play Online<br><strong><a href="https://www.roblox.com/games/783204718/PLAY-NOW" target="_blank">@Roblox</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 2: Happy Neuron -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/League of Legends.jpg" alt="Happy Neuron" class="card-img-top rounded mb-3">
+                    <h4>League of Legends</h4>
+                    <p>Play Online<br><strong><a href="https://www.leagueoflegends.com/en-gb/" target="_blank">@League of Legends</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 3: Braingle -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Apex Legends.jpg" alt="pex-legends" class="card-img-top rounded mb-3">
+                    <h4>Apex Legends</h4>
+                    <p>Play Online<br><strong><a href="https://www.ea.com/games/apex-legends" target="_blank">@Apex Legends</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 4: Brain Test: Tricky Puzzles -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/cod.jpg" alt="Brain Test: Tricky Puzzles" class="card-img-top rounded mb-3">
+                    <h4>Call of Duty: Warzone</h4>
+                    <p>Play Online<br><strong><a href="https://www.callofduty.com/warzone" target="_blank">@Call of Duty: Warzone</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 5: Stimulation Clicker -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Valorant.jpg" alt="Stimulation Clicker" class="card-img-top rounded mb-3">
+                    <h4>Valorant</h4>
+                    <p>Play Online<br><strong><a href="https://playvalorant.com/en-gb/" target="_blank">@Valorant</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 6: Arkadium's Brain Games -->
+                <div class="col-lg-3 col-md-6">
+                  <div class="card h-100 text-center p-3">
+                    <img src="assets/images/Genshin Impact.jpg" alt="Genshin Impact" class="card-img-top rounded mb-3">
+                    <h4>Genshin Impact</h4>
+                    <p>Play Online<br><strong><a href="https://genshin.hoyoverse.com/en/" target="_blank">@Genshin Impact</a></strong></p>
+                    <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                  </div>
+                </div>
+                <!-- Game 6: Arkadium's Brain Games -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-3">
+                      <img src="assets/images/The Sims 4.jpg" alt="Zooniverse Citizen Science Games" class="card-img-top rounded mb-3">
+                      <h4>The Sims 4</h4>
+                      <p>Play Online<br><strong><a href="https://store.steampowered.com/app/1222670/The_Sims_4/" target="_blank">@The Sims 4</a></strong></p>
+                      <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-3">
+                      <img src="assets/images/fifa.jpg" alt="FIFA 24" class="card-img-top rounded mb-3">
+                      <h4>FIFA 24</h4>
+                      <p>Play Online<br><strong><a href="https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24/" target="_blank">@FIFA 24</a></strong></p>
+                      <a href="details.html" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="top-seller">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h2>Virtual Frontiers: Building Critical Thinking and Problem-Solving Skills in a Digital Realm</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Boost Memory -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>1.</h4>
+                    <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Promotes Analytical Thinking</h6>
+                    <a href="https://everydayspeech.com/sel-implementation/developing-analytical-thinking-skills-a-practical-approach-for-elementary-education/#:~:text=Analytical%20thinking%20skills%20involve%20logical%20reasoning%2C%20which,skills%20are%20valuable%20in%20various%20aspects%20of" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Delayed Aging -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>2.</h4>
+                    <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Encourages Exploration and Curiosity</h6>
+                    <a href="https://www.coohom.com/article/fun-science-games-ideas" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Problem-Solving Powers -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>3.</h4>
+                    <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Strengthens Problem-Solving Skills</h6>
+                    <a href="https://elevateapp.com/blog/problem-solving-games" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Stress Reduction -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>4.</h4>
+                    <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Enhances Memory and Retention</h6>
+                    <a href="https://www.medicalnewstoday.com/articles/brain-exercises" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div>
+            <!-- Fun and Engaging -->
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="item text-center">
+                    <h4>5.</h4>
+                    <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                    <h6>Builds Patience and Persistence</h6>
+                    <a href="https://www.schoolsuccess.ca/blog/10-activities-to-develop-concentration-patience-and-perseverance/" target="_blank">
+                        <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                    </a>
+                </div>
+            </div><div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>6.</h4>
+                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Encourages Collaboration</h6>
+                  <a href="https://futuramo.com/blog/5-ways-gaming-will-develop-good-team-collaboration-and-a-strong-work-plan-strategy/#:~:text=Games%20often%20require%20players%20to%20work%20together%20to%20solve%20complex,be%20applied%20in%20the%20workplace." target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Delayed Aging -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>7.</h4>
+                  <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Stimulates Creativity and Innovation</h6>
+                  <a href="https://www.entrepreneur.com/finance/10-must-try-innovation-games-to-foster-creativity/468968" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Problem-Solving Powers -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>8.</h4>
+                  <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Develops Critical Thinking</h6>
+                  <a href="https://www.kialo-edu.com/?utm_source=Adwords&utm_medium=SEM&utm_campaign=Critical_Thinking_ROW&utm_content=ROW_CriticalThinkingActivities_HP" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Stress Reduction -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>9.</h4>
+                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Improves Focus and Concentration</h6>
+                  <a href="https://www.healthline.com/health/mental-health/how-to-improve-concentration" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+          <!-- Fun and Engaging -->
+          <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="item text-center">
+                  <h4>10.</h4>
+                  <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                  <h6>Boosts Understanding of Cause and Effect</h6>
+                  <a href="https://montessorigeneration.com/blogs/montessori/cause-and-effect?srsltid=AfmBOooLSFTj7ChOcFu5NW1PoQRkd8B11VI37FmGhD-z-wf9nnr5LBFH" target="_blank">
+                      <img src="https://img.icons8.com/ios/50/000000/book.png" alt="Book Icon" style="width: 20px; vertical-align: middle;"> Read More
+                  </a>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for styling -->
+<style>
+    .section-heading h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .line-dec {
+        width: 50px;
+        height: 2px;
+        background-color: #000;
+        margin: 10px auto;
+    }
+
+    .item h4 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .item h6 {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .item a {
+        font-size: 16px;
+        color: #007bff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .item a:hover {
+        text-decoration: underline;
+    }
+
+    .item img {
+        margin-right: 10px;
+    }
+
+    .col-lg-3 {
+        padding: 15px;
+    }
+
+    .mb-4 {
+        margin-bottom: 30px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+
+
+           
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright © 2025 <a href="index.html">VibeSphere - Entertain, Educate, Energize.</a> All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
