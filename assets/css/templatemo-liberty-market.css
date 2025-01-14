@@ -1348,7 +1348,52 @@ Page Heading Style
 .page-1 .buttons .border-button {
   margin-left: 15px;
 }
+.page-6 {
+  background-image: url(../images/puzban.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 250px;
+  text-align: center;
+  background-color: #2a2a2a;
+}
+.page-6 h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
 
+.page-6 h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+
+.page-6 span {
+  color: #8a75da;
+  font-size: 15px;
+}
+
+.page-6 span a {
+  color: #fff;
+}
+
+.page-6 .buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-6 .buttons .main-button {
+  margin-right: 15px;
+}
+
+.page-6 .buttons .border-button {
+  margin-left: 15px;
+}
 .page-2 {
   background-image: url(../images/music.jpg);
   background-repeat: no-repeat;
@@ -1488,6 +1533,190 @@ Page Heading Style
 }
 
 .page-4 .buttons .border-button {
+  margin-left: 15px;
+}
+.page-8 {
+  background-image: url(../images/download\ \(1\).jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 250px;
+  text-align: center;
+  background-color: #2a2a2a;
+}
+.page-8 h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.page-8 h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+
+.page-8 span {
+  color: #8a75da;
+  font-size: 15px;
+}
+
+.page-8 span a {
+  color: #fff;
+}
+
+.page-8 .buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-8 .buttons .main-button {
+  margin-right: 15px;
+}
+
+.page-8 .buttons .border-button {
+  margin-left: 15px;
+}
+.page-7 {
+  background-image: url(../images/racec.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 250px;
+  text-align: center;
+  background-color: #2a2a2a;
+}
+.page-7 h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.page-7 h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+
+.page-7 span {
+  color: #8a75da;
+  font-size: 15px;
+}
+
+.page-7 span a {
+  color: #fff;
+}
+
+.page-7 .buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-7 .buttons .main-button {
+  margin-right: 15px;
+}
+
+.page-7 .buttons .border-button {
+  margin-left: 15px;
+}
+.page-9 {
+  background-image: url(../images/s.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 250px;
+  text-align: center;
+  background-color: #2a2a2a;
+}
+.page-9 h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.page-9 h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+
+.page-9 span {
+  color: #8a75da;
+  font-size: 15px;
+}
+
+.page-9 span a {
+  color: #fff;
+}
+
+.page-9 .buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-9 .buttons .main-button {
+  margin-right: 15px;
+}
+
+.page-9 .buttons .border-button {
+  margin-left: 15px;
+}
+.page-10 {
+  background-image: url(../images/baaaa.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 250px;
+  text-align: center;
+  background-color: #2a2a2a;
+}
+.page-10 h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.page-10 h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+
+.page-10 span {
+  color: #8a75da;
+  font-size: 15px;
+}
+
+.page-10 span a {
+  color: #fff;
+}
+
+.page-10 .buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-10 .buttons .main-button {
+  margin-right: 15px;
+}
+
+.page-10 .buttons .border-button {
   margin-left: 15px;
 }
 /* 

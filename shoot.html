@@ -51,30 +51,42 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                   
-                     <!-- ***** Search Start ***** -->
-<div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
-  <form id="search" action="#">
-    <input 
-      type="text" 
-      placeholder="Type Something" 
-      id="searchText" 
-      name="searchKeyword" 
-      onkeyup="filterContent()" 
-      style="
-        padding: 10px 20px; 
-        border-radius: 50px; 
-        border: 2px solid #ccc; 
-        outline: none; 
-        font-size: 16px; 
-        transition: border 0.3s ease;
-        width: 250px;
-      " 
-      onfocus="this.style.borderColor='#007bff'" 
-      onblur="this.style.borderColor='#ccc'"
-    />
-    <i class="fa fa-search" style="position: absolute; right: 15px; top: 12px;"></i>
-  </form>
-</div>
+                    <!-- ***** Search Start ***** -->
+                    <div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
+                      <form id="search" action="#">
+                        <div style="position: relative; width: 100%;">
+                          <input 
+                            type="text" 
+                            placeholder="Type Something" 
+                            id="searchText" 
+                            name="searchKeyword" 
+                            onkeyup="filterContent()" 
+                            style="
+                              padding: 10px 20px; 
+                              border-radius: 50px; 
+                              border: 2px solid #ccc; 
+                              outline: none; 
+                              font-size: 16px; 
+                              transition: border 0.3s ease;
+                              width: 250px;
+                            " 
+                            onfocus="this.style.borderColor='#007bff'" 
+                            onblur="this.style.borderColor='#ccc'"
+                            class="fa fa-search" 
+                            style="
+                              position: absolute; 
+                              right: 15px; 
+                              top: 50%; 
+                              transform: translateY(-50%); 
+                              font-size: 16px; 
+                              color: #aaa;
+                            "
+                          />
+                          
+                        </div>
+                      </form>
+                    </div>
+                    
 <!-- ***** Search End ***** -->
 
 <!-- Placeholder for results message -->
@@ -82,28 +94,31 @@
 
 <script>
   const availableLinks = {
-    "brain buster": "brain.html",
-    "science": "science.html",
-    "music art": "music.html",
-    "virtual world": "virtual.html",
-    "maths": "maths.html",
-    "global": "global.html",
-    "shooting": "shooting.html",
-    "racing": "racing.html",
-    "go-solo": "gosolo.html"
+    "br": "brain.html",
+    "sci": "science.html",
+    "mus": "music.html",
+    "vir": "virtual.html",
+    "ma": "math.html",
+    "glo": "global.html",
+    "sho": "shoot.html",
+    "rac": "race.html",
+    "go": "gosolo.html"
   };
 
   function filterContent() {
-    const searchText = document.getElementById("searchText").value.toLowerCase();
+    const searchText = document.getElementById("searchText").value.toLowerCase().trim();
     const resultMessage = document.getElementById("resultMessage");
 
-    // Check if there's a match in the available links
-    if (availableLinks[searchText]) {
-      resultMessage.innerHTML = `Redirecting to <a href="${availableLinks[searchText]}" target="_blank">${searchText}</a>...`;
-      window.location.href = availableLinks[searchText];
-    } else if (searchText.trim() !== "") {
-      resultMessage.innerHTML = "No results found. Please try another search.";
+    if (searchText) {
+      if (availableLinks[searchText]) {
+        // Redirect if game is found
+        window.location.href = availableLinks[searchText];
+      } else {
+        // Show "Not Found" message
+        resultMessage.innerHTML = `<span style="color: red;">Game "${searchText}" not found. Please try again.</span>`;
+      }
     } else {
+      // Clear the message when the input is empty
       resultMessage.innerHTML = "";
     }
   }
@@ -111,29 +126,30 @@
 
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Home</a></li>
-                      <li><a href="brain.html">Mind Maze</a></li>
-                      <li><a href="Virtual.html">Virtual Frontiers</a></li>
-                      <li><a href="music.html">Rhythm Realms</a></li>
-                      <li><a href="science.html">SciQuest</a></li>
-                  </ul>   
-                  <a class='menu-trigger'>
-                      <span>Menu</span>
-                  </a>
-                  <!-- ***** Menu End ***** -->
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="brain.html">Mind Maze</a></li>
+                        <li><a href="Virtual.html">Virtual Frontiers</a></li>
+                        <li><a href="music.html">Rhythm Realms</a></li>
+                        <li><a href="science.html">SciQuest</a></li>
+                        <li><a href="about.html">About US</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
                 </nav>
             </div>
         </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-  <div class="page-1">
+  <div class="page-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h6>VibeSphere</h6>
-          <h2>Discover Some Scientific Adventures in Gaming</h2>
-          <span><a href="index.html" target="_blank" >Home > </a>Science</a></span>
+          <h2>Unleash Your Inner Sharpshooter: Dive Into Action-Packed Shooting Games!</h2>
+          <span><a href="index.html" target="_blank" >Home > </a>Shooting</a></span>
         </div>
       </div>
     </div>
@@ -144,13 +160,13 @@
             <div class="owl-features owl-carousel">
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/nasa.png" alt="" style="border-radius: 20px;">
+                  <img src="assets/images/Call of Duty Warzone.jpg" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
-                      <h4>NASA's Space Place Games</h4>
+                      <h4>Call of Duty: Warzone</h4>
                       <span class="author">
                         <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Play Online<br><a href="https://spaceplace.nasa.gov/menu/play/">@NASA</a></h6>
+                        <h6>Play Online<br><a href="https://www.callofduty.com/store/games/warzone">@Call of Duty: Warzone</a></h6>
                       </span>
                     </div>
                   </div>
@@ -158,13 +174,13 @@
               </div>
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/kids.jpg" alt="" style="border-radius: 20px;">
+                  <img src="assets/images/pubg.webp" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
-                      <h4>Science Kids</h4>
+                      <h4>PUBG: Battlegrounds</h4>
                       <span class="author">
                         <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Play Online<br><a href="https://www.sciencekids.co.nz/">@ScienceKids</a></h6>
+                        <h6>Play Online<br><a href="https://www.pubg.com/en/main">@PUBG: Battlegrounds</a></h6>
                       </span>
                     </div>
                   </div>
@@ -172,13 +188,13 @@
               </div>
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/brainpop.jpg" alt="" style="border-radius: 20px;">
+                  <img src="assets/images/Fortnite1.jpg" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
-                      <h4>BrainPOP Games</h4>
+                      <h4>Fortnite</h4>
                       <span class="author">
                         <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Play Online<br><a href="https://www.brainpop.com/">@brainpop</a></h6>
+                        <h6>Play Online<br><a href="https://www.fortnite.com/">@Fortnite</a></h6>
                       </span>
                     </div>
                   </div>
@@ -186,13 +202,13 @@
               </div>
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/legend.jpg" alt="" style="border-radius: 20px;">
+                  <img src="assets/images/Valorant1.jpg" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
-                      <h4>Legends of Learning</h4>
+                      <h4>Valorant</h4>
                       <span class="author">
                         <img src="assets/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Play Online<br><a href="https://www.legendsoflearning.com/">@Legends</a></h6>
+                        <h6>Play Online<br><a href="https://playvalorant.com/en-gb/">@Valorant</a></h6>
                       </span>
                     </div>
                   </div>
@@ -211,7 +227,7 @@
         <div class="col-lg-5">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Discover Some Of More Mind Games of  <em>Science</em>.</h2>
+            <h2>Take Aim and Conquer: Explore Top Online<em> Shooting Games!</em>.</h2>
           </div>
         </div>
         <div class="col-lg-7">
@@ -258,71 +274,71 @@
                 <!-- Game 1: Peak -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/pbs.jpg" alt="Peak" class="card-img-top rounded mb-3">
-                    <h4>PBS Kids Science Games</h4>
-                    <p>Play Online<br><strong><a href="https://pbskids.org/games/science" target="_blank">@PBS</a></strong></p>
+                    <img src="assets/images/Apex Legends.jpg" alt="Peak" class="card-img-top rounded mb-3">
+                    <h4>Apex Legends</h4>
+                    <p>Play Online<br><strong><a href="https://www.ea.com/games/apex-legends" target="_blank">@Apex Legends</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 2: Happy Neuron -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/phet.jpg" alt="Happy Neuron" class="card-img-top rounded mb-3">
-                    <h4>PhET Interactive Simulations</h4>
-                    <p>Play Online<br><strong><a href="https://phet.colorado.edu/" target="_blank">@PhET</a></strong></p>
+                    <img src="assets/images/cs.jpg" alt="Happy Neuron" class="card-img-top rounded mb-3">
+                    <h4>Counter-Strike: Global Offensive (CS:GO)</h4>
+                    <p>Play Online<br><strong><a href="https://www.counter-strike.net/" target="_blank">@Counter-Strike</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 3: Braingle -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/cell-cycle.png" alt="Braingle" class="card-img-top rounded mb-3">
-                    <h4>Nobel Prize Educational Games</h4>
-                    <p>Play Online<br><strong><a href="https://educationalgames.nobelprize.org/educational/" target="_blank">@NobelPrizeEducation</a></strong></p>
+                    <img src="assets/images/over.jpg" alt="Braingle" class="card-img-top rounded mb-3">
+                    <h4>Overwatch 2</h4>
+                    <p>Play Online<br><strong><a href="https://overwatch.blizzard.com/en-us/" target="_blank">@Overwatch 2</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 4: Brain Test: Tricky Puzzles -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/sss.jpg" alt="Brain Test: Tricky Puzzles" class="card-img-top rounded mb-3">
-                    <h4>Sheppard Software Science Games</h4>
-                    <p>Play Online<br><strong><a href="https://www.sheppardsoftware.com/" target="_blank">@SheppardSoftwareScience</a></strong></p>
+                    <img src="assets/images/Splitgate.jpg" alt="Brain Test: Tricky Puzzles" class="card-img-top rounded mb-3">
+                    <h4>Splitgate</h4>
+                    <p>Play Online<br><strong><a href="https://www.sheppardsoftware.com/" target="_blank">@Splitgate</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 5: Stimulation Clicker -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/ngk.jpg" alt="Stimulation Clicker" class="card-img-top rounded mb-3">
-                    <h4>National Geographic Kids Games</h4>
-                    <p>Play Online<br><strong><a href="https://kids.nationalgeographic.com/games/" target="_blank">@NationalGeographicKids</a></strong></p>
+                    <img src="assets/images/ZombsRoyale.jpg" alt="Stimulation Clicker" class="card-img-top rounded mb-3">
+                    <h4>ZombsRoyale</h4>
+                    <p>Play Online<br><strong><a href="https://zombsroyale.io/" target="_blank">@ZombsRoyale</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 6: Arkadium's Brain Games -->
                 <div class="col-lg-3 col-md-6">
                   <div class="card h-100 text-center p-3">
-                    <img src="assets/images/ecokids.jpg" alt="EcoKids Games" class="card-img-top rounded mb-3">
-                    <h4>EcoKids Games</h4>
-                    <p>Play Online<br><strong><a href="https://www.ecokids.ca/" target="_blank">@EcoKids</a></strong></p>
+                    <img src="assets/images/k.jpg" alt="EcoKids Games" class="card-img-top rounded mb-3">
+                    <h4>Krunker.io</h4>
+                    <p>Play Online<br><strong><a href="https://krunker.io/?game=TOK:bqpfm" target="_blank">@Krunker.io</a></strong></p>
                     <a href="details.html" class="btn btn-outline-primary">View Details</a>
                   </div>
                 </div>
                 <!-- Game 6: Arkadium's Brain Games -->
                 <div class="col-lg-3 col-md-6">
                     <div class="card h-100 text-center p-3">
-                      <img src="assets/images/unnamed.png" alt="Zooniverse Citizen Science Games" class="card-img-top rounded mb-3">
-                      <h4>Zooniverse Citizen Science Games</h4>
-                      <p>Play Online<br><strong><a href="https://www.ecokids.ca/" target="_blank">@Zooniverse</a></strong></p>
+                      <img src="assets/images/destiny2.jpg" alt="Zooniverse Citizen Science Games" class="card-img-top rounded mb-3">
+                      <h4>Bungie Inc</h4>
+                      <p>Play Online<br><strong><a href="https://www.bungie.net/7" target="_blank">@Bungie Inc</a></strong></p>
                       <a href="details.html" class="btn btn-outline-primary">View Details</a>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-6">
                     <div class="card h-100 text-center p-3">
-                      <img src="assets/images/dodle.jpg" alt="Google's Doodle Games" class="card-img-top rounded mb-3">
-                      <h4>Google's Doodle Games</h4>
-                      <p>Play Online<br><strong><a href="https://www.google.com/search?sca_esv=3c191617fa4b492a&sxsrf=ADLYWIITBKX3a9kIQ-lAE3MAdpo9yhdHqw:1736442826771&q=Google+Doodle+Games&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J603JUkR9Y5suk8yuy50qOYMMWTNCTu57lKPsZpPcfqPO_IpBTFq5Iu5fjJcS9zeIjPFJUv87eZfN29UFdVUPMDQu7RK9R_bUPLOf1fjQfA8iavGDDNI4XAiPb7CBH_tYixgN7oUspZLXXXsRkqTIf5aqMzAsa5BiGd_cq9iXccaPMpaPw&sa=X&ved=2ahUKEwjQ8fLOkemKAxWw1DgGHbfoDIAQ0pQJegQIDRAB&biw=1396&bih=663&dpr=1.38" target="_blank">@Doodle</a></strong></p>
+                      <img src="assets/images/black.jpg" alt="Google's Doodle Games" class="card-img-top rounded mb-3">
+                      <h4>Black Squad</h4>
+                      <p>Play Online<br><strong><a href="https://blacksquad-gl.valofe.com/" target="_blank">@Black Squad</a></strong></p>
                       <a href="details.html" class="btn btn-outline-primary">View Details</a>
                     </div>
                   </div>
@@ -340,7 +356,7 @@
             <div class="col-lg-12 text-center">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Scientific Quest: Enhancing Critical Thinking and Problem-Solving Skills</h2>
+                    <h2>Sharpshooter's Challenge: Master Precision and Tactical Skills</h2>
                 </div>
             </div>
         </div>

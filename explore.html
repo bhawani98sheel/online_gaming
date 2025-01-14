@@ -39,95 +39,110 @@
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
-                          <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
-                        </a>
-                        <!-- ***** Logo End ***** -->
+ <!-- ***** Header Area Start ***** -->
+ <header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
+                        <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                
+                  <!-- ***** Search Start ***** -->
+                  <div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
+                    <form id="search" action="#">
+                      <div style="position: relative; width: 100%;">
+                        <input 
+                          type="text" 
+                          placeholder="Type Something" 
+                          id="searchText" 
+                          name="searchKeyword" 
+                          onkeyup="filterContent()" 
+                          style="
+                            padding: 10px 20px; 
+                            border-radius: 50px; 
+                            border: 2px solid #ccc; 
+                            outline: none; 
+                            font-size: 16px; 
+                            transition: border 0.3s ease;
+                            width: 250px;
+                          " 
+                          onfocus="this.style.borderColor='#007bff'" 
+                          onblur="this.style.borderColor='#ccc'"
+                          class="fa fa-search" 
+                          style="
+                            position: absolute; 
+                            right: 15px; 
+                            top: 50%; 
+                            transform: translateY(-50%); 
+                            font-size: 16px; 
+                            color: #aaa;
+                          "
+                        />
+                        
+                      </div>
+                    </form>
+                  </div>
                   
-                     <!-- ***** Search Start ***** -->
-<div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
-  <form id="search" action="#">
-    <input 
-      type="text" 
-      placeholder="Type Something" 
-      id="searchText" 
-      name="searchKeyword" 
-      onkeyup="filterContent()" 
-      style="
-        padding: 10px 20px; 
-        border-radius: 50px; 
-        border: 2px solid #ccc; 
-        outline: none; 
-        font-size: 16px; 
-        transition: border 0.3s ease;
-        width: 250px;
-      " 
-      onfocus="this.style.borderColor='#007bff'" 
-      onblur="this.style.borderColor='#ccc'"
-    />
-    <i class="fa fa-search" style="position: absolute; right: 15px; top: 12px;"></i>
-  </form>
-</div>
 <!-- ***** Search End ***** -->
 
 <!-- Placeholder for results message -->
 <div id="resultMessage" style="margin-left: 100px; padding-top: 10px; font-size: 16px;"></div>
 
 <script>
-  const availableLinks = {
-    "brain": "brain.html",
-    "science": "science.html",
-    "music art": "music.html",
-    "virtual world": "virtual.html",
-    "maths": "maths.html",
-    "global": "global.html",
-    "shooting": "shooting.html",
-    "racing": "racing.html",
-    "go-solo": "gosolo.html"
-  };
+const availableLinks = {
+  "br": "brain.html",
+  "sci": "science.html",
+  "mus": "music.html",
+  "vir": "virtual.html",
+  "ma": "math.html",
+  "glo": "global.html",
+  "sho": "shoot.html",
+  "rac": "race.html",
+  "go": "gosolo.html"
+};
 
-  function filterContent() {
-    const searchText = document.getElementById("searchText").value.toLowerCase();
-    const resultMessage = document.getElementById("resultMessage");
+function filterContent() {
+  const searchText = document.getElementById("searchText").value.toLowerCase().trim();
+  const resultMessage = document.getElementById("resultMessage");
 
-    // Check if there's a match in the available links
+  if (searchText) {
     if (availableLinks[searchText]) {
-      resultMessage.innerHTML = `Redirecting to <a href="${availableLinks[searchText]}" target="_blank">${searchText}</a>...`;
+      // Redirect if game is found
       window.location.href = availableLinks[searchText];
-    } else if (searchText.trim() !== "") {
-      resultMessage.innerHTML = "No results found. Please try another search.";
     } else {
-      resultMessage.innerHTML = "";
+      // Show "Not Found" message
+      resultMessage.innerHTML = `<span style="color: red;">Game "${searchText}" not found. Please try again.</span>`;
     }
+  } else {
+    // Clear the message when the input is empty
+    resultMessage.innerHTML = "";
   }
+}
 </script>
 
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="explore.html">Explore</a></li>
-                        <li><a href="details.html">Item Details</a></li>
-                        <li><a href="author.html">Author</a></li>
-                        <li><a href="create.html">Create Yours</a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-
-  <!-- ***** Header Area End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                      <li><a href="index.html" class="active">Home</a></li>
+                      <li><a href="brain.html">Mind Maze</a></li>
+                      <li><a href="Virtual.html">Virtual Frontiers</a></li>
+                      <li><a href="music.html">Rhythm Realms</a></li>
+                      <li><a href="science.html">SciQuest</a></li>
+                      <li><a href="about.html">About US</a></li>
+                  </ul>   
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
   <div class="page-heading">
     <div class="container">
