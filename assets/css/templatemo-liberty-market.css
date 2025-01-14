@@ -1674,7 +1674,7 @@ Page Heading Style
   margin-left: 15px;
 }
 .page-10 {
-  background-image: url(../images/baaaa.jpg);
+  background-image: url(../images/ba11.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -2530,4 +2530,31 @@ body {
 
 @media (max-width: 1200px) {
   
+}
+.feedback-section {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.feedback-section h3 {
+  color: #0056b3;
+}
+
+.feedback-section p {
+  color: #555;
+}
+
+.feedback-section textarea {
+  border: 2px solid #0056b3;
+  background-color: #eef3fa;
+  color: #0056b3;
+}
+
+.feedback-section .btn-primary {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+#feedback-response {
+  color: #28a745;
 }

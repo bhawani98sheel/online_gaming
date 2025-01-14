@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="templatemo">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Custom Typography Generator - VibeSphere</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Indie+Flower&family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('ty.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: white;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    select, input[type="text"], input[type="number"], input[type="color"] {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #333;
+    }
+
+    .styled-text {
+      font-size: 48px;
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 0.7);
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-btn {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Custom Typography Generator</h1>
+
+  <div class="controls">
+    <input type="text" id="textInput" placeholder="Enter your text here..." oninput="updateText()" />
+    <select id="fontSelect" onchange="updateText()">
+      <option value="Roboto">Roboto</option>
+      <option value="Pacifico">Pacifico</option>
+      <option value="Indie Flower">Indie Flower</option>
+      <option value="Playfair Display">Playfair Display</option>
+      <option value="Montserrat">Montserrat</option>
+    </select>
+    <input type="number" id="fontSize" min="10" max="100" value="48" onchange="updateText()" />
+    <input type="color" id="colorSelect" value="#ffffff" onchange="updateText()" />
+  </div>
+
+  <div class="font-options">
+    <div class="font-preview">
+      <strong>Preview:</strong>
+      <div id="previewText" class="styled-text">Hello, World!</div>
+    </div>
+  </div>
+
+  <button class="download-btn" id="downloadBtn">Download as Image</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script>
+    // Get elements
+    const textInput = document.getElementById("textInput");
+    const fontSelect = document.getElementById("fontSelect");
+    const fontSize = document.getElementById("fontSize");
+    const colorSelect = document.getElementById("colorSelect");
+    const previewText = document.getElementById("previewText");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    // Update text preview
+    function updateText() {
+      const inputText = textInput.value || "Hello, World!";
+      const selectedFont = fontSelect.value;
+      const selectedSize = fontSize.value;
+      const selectedColor = colorSelect.value;
+
+      previewText.innerText = inputText;
+      previewText.style.fontFamily = selectedFont;
+      previewText.style.fontSize = selectedSize + 'px';
+      previewText.style.color = selectedColor;
+    }
+
+    // Download the preview as an image
+    downloadBtn.addEventListener('click', function () {
+      html2canvas(previewText).then(function (canvas) {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL("image/png");
+        link.download = 'custom_typography.png';
+        link.click();
+      });
+    });
+
+    // Initialize with default values
+    updateText();
+  </script>
+
+</body>
+
+</html>

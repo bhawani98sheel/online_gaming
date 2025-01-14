@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doodle Canvas with Preloader and Header</title>
+  <style>
+    /* General Styles */
+    body {
+      background-image: url('./assets/images/col.jpg');
+      background-size: cover; /* Ensures it covers the entire background */
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Preloader Styles */
+    .js-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .preloader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .preloader-inner .dot {
+      width: 20px;
+      height: 20px;
+      background-color: #007bff;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .preloader-inner .dots span {
+      width: 10px;
+      height: 10px;
+      background-color: #007bff;
+      border-radius: 50%;
+      margin: 5px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Header Styles */
+    .header-area {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px 0;
+    }
+    .header-area .logo img {
+      max-width: 80px;
+      border-radius: 50%;
+    }
+    .header-area nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-area .search-input input {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 2px solid #ccc;
+      outline: none;
+      font-size: 16px;
+    }
+    .header-area ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+    .header-area ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+    .header-area ul li a.active {
+      font-weight: bold;
+    }
+
+    /* Doodle Canvas */
+    .canvas-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    canvas {
+      border: 2px solid #333;
+      cursor: crosshair;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    }
+    .tools {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    button, input[type="color"] {
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    input[type="color"] {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <nav>
+        <!-- Logo -->
+        <a href="index.html" class="logo" title="Go to Home">
+          <img src="assets/images/logo1.png" alt="Home Logo">
+        </a>
+
+        <!-- Search -->
+        <div class="search-input">
+          <form id="search" action="#">
+            <input type="text" placeholder="Type Something" id="searchText" name="searchKeyword" onkeyup="filterContent()" />
+          </form>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="brain.html">Mind Maze</a></li>
+          <li><a href="Virtual.html">Virtual Frontiers</a></li>
+          <li><a href="music.html">Rhythm Realms</a></li>
+          <li><a href="science.html">SciQuest</a></li>
+          <li><a href="about.html">About US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Doodle Canvas Section -->
+  <h1 style="text-align:center; color:white;">Welcome to the Coloring World!</h1>
+
+  <!-- Canvas for Drawing -->
+  <div class="canvas-section">
+    <canvas id="coloringCanvas" width="600" height="400"></canvas>
+  </div>
+
+  <!-- Tools Section -->
+  <div class="tools">
+    <button id="clearCanvas">Clear</button>
+    <select id="shapeSelect">
+      <option value="circle">Circle</option>
+      <option value="square">Square</option>
+      <option value="triangle">Triangle</option>
+    </select>
+    <input type="color" id="colorPicker" value="#000000">
+    <button id="download">Download</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("coloringCanvas");
+    const ctx = canvas.getContext("2d");
+    const clearButton = document.getElementById("clearCanvas");
+    const colorPicker = document.getElementById("colorPicker");
+    const shapeSelect = document.getElementById("shapeSelect");
+    const downloadButton = document.getElementById("download");
+
+    let currentColor = "#000000";
+    let currentShape = "circle";
+
+    // Draw shape on canvas
+    function drawShape(x, y) {
+      ctx.fillStyle = currentColor;
+      if (currentShape === "circle") {
+        ctx.beginPath();
+        ctx.arc(x, y, 30, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (currentShape === "square") {
+        ctx.fillRect(x - 30, y - 30, 60, 60);
+      } else if (currentShape === "triangle") {
+        ctx.beginPath();
+        ctx.moveTo(x, y - 30);
+        ctx.lineTo(x - 30, y + 30);
+        ctx.lineTo(x + 30, y + 30);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    // Change color
+    colorPicker.addEventListener("input", (e) => {
+      currentColor = e.target.value;
+    });
+
+    // Change shape
+    shapeSelect.addEventListener("change", (e) => {
+      currentShape = e.target.value;
+    });
+
+    // Handle mouse click to draw
+    canvas.addEventListener("click", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      drawShape(x, y);
+    });
+
+    // Clear the canvas
+    clearButton.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Download the canvas as an image
+    downloadButton.addEventListener("click", () => {
+      const dataUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = "my_artwork.png";
+      link.click();
+    });
+
+    // Preloader handling
+    window.addEventListener("load", function() {
+      document.getElementById("js-preloader").style.display = "none";
+    });
+  </script>
+</body>
+</html>

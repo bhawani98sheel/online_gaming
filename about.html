@@ -143,15 +143,14 @@
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-  
+
   <div class="page-10">
-   
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h6>VibeSphere</h6>
           <h2>Your Ultimate Guide to Gaming: Play, Learn, and Dominate!</h2>
-          <span>Home > <a href="details.html">About US</a></span>
+          <span>Home > <a href="about.html">About US</a></span>
           <div class="buttons">
             <div class="main-button">
               <a href="index.html">Explore Our Games</a>
@@ -168,180 +167,70 @@
   <div class="author-page">
     <div class="container">
       <div class="row">
-        <!-- Author Info Section -->
         <div class="col-lg-6">
           <div class="author">
             <img src="assets/images/download.png" alt="" style="border-radius: 50%; max-width: 170px;">
-            <h4>VibeSphere <br> <a href="#">@VibeSphere</a></h4>
+            <h4>VibeSphere <br> <a href="index.html">@VibeSphere</a></h4>
           </div>
         </div>
-  
-        <!-- Interaction Section -->
         <div class="col-lg-6">
           <div class="right-info">
             <div class="row">
-              <!-- Likes -->
               <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-heart"></i>
-                  <h6 id="likes-count">1238 <em>Likes</em></h6>
-                </div>
-                <button id="like-button" class="main-button">Like</button>
+                <div class="stat-item">
+              <i class="fa fa-heart fa-2x text-danger"></i>
+              <h6 id="like-count">1238 <em>Likes</em></h6>
+              <button class="btn btn-outline-primary mt-2" onclick="increaseLikes()">Like</button>
+            </div>
               </div>
-  
-              <!-- Shares -->
               <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-hand"></i>
-                  <h6 id="shares-count">485 <em>Shares</em></h6>
-                </div>
-                <button id="share-button" class="main-button">Share</button>
+                <div class="stat-item">
+              <i class="fa fa-bell fa-2x text-warning"></i>
+              <h6 id="follow-count">1238 <em>Followers</em></h6>
+              <button class="btn btn-outline-primary mt-2" onclick="increaseFollowers()">Follow</button>
+            </div>
               </div>
-  
-              <!-- Followers -->
               <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-user"></i>
-                  <h6 id="followers-count">559 <em>Followers</em></h6>
-                </div>
-                <button id="follow-button" class="main-button">Follow</button>
+                <div class="stat-item">
+              <i class="fa fa-share fa-2x text-info"></i>
+              <h6><em>Share</em></h6>
+              <button class="btn btn-outline-primary mt-2" onclick="openSharePopup()">Share</button>
+            </div>
               </div>
             </div>
-  
-            <!-- Feedback Section -->
-            <div class="feedback-section" style="margin-top: 20px;">
-              <h4>Send Your Feedback</h4>
-              <form id="feedback-form">
-                <textarea id="feedback-text" placeholder="Enter your feedback here..." style="width: 100%; height: 100px; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-                <button type="submit" class="main-button">Submit Feedback</button>
-              </form>
-              <p id="success-message" class="success-message" style="display: none; color: green; margin-top: 10px;">Thank you for your feedback!</p>
-            </div>
+            
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    // Handle Likes
-    const likeButton = document.getElementById('like-button');
-    const likesCount = document.getElementById('likes-count');
-    let currentLikes = 1238;
-  
-    likeButton.addEventListener('click', () => {
-      currentLikes++;
-      likesCount.innerHTML = `${currentLikes} <em>Likes</em>`;
-    });
-  
-    // Handle Shares
-    const shareButton = document.getElementById('share-button');
-    const sharesCount = document.getElementById('shares-count');
-    let currentShares = 485;
-  
-    shareButton.addEventListener('click', () => {
-      currentShares++;
-      sharesCount.innerHTML = `${currentShares} <em>Shares</em>`;
-    });
-  
-    // Handle Followers
-    const followButton = document.getElementById('follow-button');
-    const followersCount = document.getElementById('followers-count');
-    let currentFollowers = 559;
-  
-    followButton.addEventListener('click', () => {
-      currentFollowers++;
-      followersCount.innerHTML = `${currentFollowers} <em>Followers</em>`;
-      followButton.textContent = 'Following';
-      followButton.disabled = true; // Disable button after clicking
-    });
-  
-    // Handle Feedback Form
-    const feedbackForm = document.getElementById('feedback-form');
-    const feedbackText = document.getElementById('feedback-text');
-    const successMessage = document.getElementById('success-message');
-  
-    feedbackForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-  
-      const feedback = feedbackText.value.trim();
-      if (feedback) {
-        // Sending feedback via mailto
-        const mailTo = `mailto:kittubhawani@gmail.com?subject=Feedback&body=${encodeURIComponent(feedback)}`;
-        window.location.href = mailTo;
-  
-        // Clear the feedback text and show success message
-        feedbackText.value = '';
-        successMessage.style.display = 'block';
-  
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 3000);
-      } else {
-        alert('Please enter your feedback before submitting.');
-      }
-    });
-  </script>
-  
-  <style>
-    .main-button {
-      background-color: #007bff;
-      color: #fff;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 10px;
-      text-align: center;
-    }
-  
-    .main-button:hover {
-      background-color: #0056b3;
-    }
-  
-    .info-item {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  
-    .info-item i {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-  </style>
-  
-  
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Top Viewed Gaming<em>Video</em>.</h2>
+            <h2>Top Gaming <em>Videos</em>.</h2>
           </div>
         </div>
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="assets/images/channels4_profile.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-03.jpg" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
+                <img src="assets/images/OVFV.gif" alt="" style="border-radius: 20px;">
+                <h4><a href ="https://www.youtube.com/@ChessBaseIndiachannel" target="_blank">The shortest game of Magnus Carlsen's chess career!</a></h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
                   <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
+                    <span>Video: <br> <strong><a href="https://youtu.be/wofz0k6FCMU">Watch</a></strong></span>
                   </div>
                   <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
+                    <span>Play: <br> <strong><a href="https://www.chess.com/">Play Here</a></strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="https://www.youtube.com/@chess" target="_blank">View More</a>
                 </div>
               </div>
             </div>
@@ -352,25 +241,25 @@
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="assets/images/chan.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-06.jpg" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
+                <img src="assets/images/g1OF.gif" alt="" style="border-radius: 20px;">
+                <h4><a href ="https://youtu.be/14k_zKs5f7Q" target="_blank">KING OF M762 | 42 KILLS SOLO VS SQUAD | NEW WORLD RECORD IN PUBG</a></h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
                   <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
+                    <span>Video: <br> <strong><a href="https://youtu.be/wofz0k6FCMU">Watch</a></strong></span>
                   </div>
                   <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
+                    <span>Play: <br> <strong><a href="https://www.pubg.com/en/main">Play Here</a></strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">View More</a>
                 </div>
               </div>
             </div>
@@ -381,25 +270,25 @@
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="assets/images/fromula.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-05.jpg" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
+                <img src="assets/images/K0lf.gif" alt="" style="border-radius: 20px;">
+                <h4><a href ="https://www.youtube.com/@motogp" target="_blank">Isle of Man TT | Most Watched Moments | 100+ Million views!</a></h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
                   <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
+                    <span>Video: <br> <strong><a href="https://youtu.be/KG84JmetIG8">Watch</a></strong></span>
                   </div>
                   <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
+                    <span>Play: <br> <strong><a href="https://motogpvideogame.com/">Play Here</a></strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="https://www.youtube.com/@Formula1" target="_blank">View More</a>
                 </div>
               </div>
             </div>
@@ -410,25 +299,25 @@
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="assets/images/tt.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-04.jpg" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
+                <img src="assets/images/GAve.gif" alt="" style="border-radius: 20px;">
+                <h4><a href ="https://www.youtube.com/watch?v=nd40lIYtQmA" target="_blank">Most Outrageous Table Tennis Match EVER | Classic mistakes to avoid</a></h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
                   <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
+                    <span>Video: <br> <strong><a href="https://www.youtube.com/watch?v=nd40lIYtQmA">Watch</a></strong></span>
                   </div>
                   <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
+                    <span>Play: <br> <strong><a href="https://gamesnacks.com/games/tabletennis">Play Here</a></strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="https://www.youtube.com/@pingsunday" target="_blank">View More</a>
                 </div>
               </div>
             </div>
@@ -444,36 +333,36 @@
         <div class="col-lg-8">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Create Your NFT & Put It On The Market.</h2>
+            <h2>Unleash Your Creativity: Craft and Mint Your Unique Doodle</h2>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Create Your NFT Now</a>
+            <a href="create.html">Create Your Doodle</a>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="item first-item">
             <div class="number">
-              <h6>1</h6>
+              <h6></h6>
             </div>
             <div class="icon">
               <img src="assets/images/icon-02.png" alt="">
             </div>
-            <h4>Set Up Your Wallet</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h4>🎨✨ Color Your World: Ignite Your Creativity! 🌍🌈</h4>
+            <p>Unleash your inner artist, choose your favorite colors, and start bringing your visions to life. <br> When you're satisfied with your creation, download it and keep it as a reminder of your<a href="colour.html" target="_blank"> creativity!</a>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="item second-item">
             <div class="number">
-              <h6>2</h6>
+              <h6></h6>
             </div>
             <div class="icon">
               <img src="assets/images/icon-04.png" alt="">
             </div>
-            <h4>Add Your Digital NFT</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h4>Bring Your Story to Life ✨: Create Interactive Comics 📚 and Engage Your Audience! 🎭</h4>
+            <p>Unleash your imagination, design captivating characters, and craft your own interactive stories! 🎨✨ When you're ready, download your <a href="create1.html" target="_blank">masterpiece</a> and cherish the world you've created. 📖💫</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -481,21 +370,46 @@
             <div class="icon">
               <img src="assets/images/icon-06.png" alt="">
             </div>
-            <h4>Sell Your NFT &amp; Make Profit</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h4>Design Your Words: Create Custom Typography That Speaks Volumes! 🖋️✨</h4>
+            <p>Let your words stand out with unique, personalized fonts and designs! 🎨💬.When you're happy with your creation, download it and showcase your creativity in <a href="design.html" target="_blank"> style!</a>🌟
           </div>
         </div>
       </div>
     </div>
   </div>
+<!-- Feedback Section -->
+<div class="feedback-section" style="margin: 20px auto; max-width: 600px; text-align: center; font-family: Arial, sans-serif;">
+  <h4 style="color: #333; margin-bottom: 15px;">We Value Your Feedback</h4>
+  <form id="feedback-form" style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <textarea 
+      id="feedback-text" 
+      placeholder="Share your thoughts with us..." 
+      style="width: 100%; height: 120px; padding: 15px; border: 2px solid #ccc; border-radius: 8px; margin-bottom: 15px; font-size: 16px; resize: none;"
+    ></textarea>
+    <button 
+      type="submit" 
+      class="main-button" 
+      style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"
+    >
+      Submit Feedback
+    </button>
+  </form>
+  <p id="success-message" 
+     class="success-message" 
+     style="display: none; color: #007bff; margin-top: 15px; font-weight: bold; font-size: 18px;"
+  >
+    Thank you for your feedback!
+  </p>
+</div>
+
 
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
+          <p>Copyright © 2025 VibeSphere - Entertain, Educate, Energize. All rights reserved.   
           &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+ 
         </div>
       </div>
     </div>
@@ -512,5 +426,85 @@
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
+  <!-- Scripts -->
+ <script>
+  // Likes and Followers Logic
+  let likeCount = 1238;
+  let followCount = 1238;
+
+  function increaseLikes() {
+    likeCount++;
+    document.getElementById('like-count').innerHTML = `${likeCount} <em>Likes</em>`;
+  }
+
+  function increaseFollowers() {
+    followCount++;
+    document.getElementById('follow-count').innerHTML = `${followCount} <em>Followers</em>`;
+  }
+
+  // Share Popup Logic
+  function openSharePopup() {
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+    document.getElementById('linkedin-share').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
+
+    document.getElementById('share-popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function closeSharePopup() {
+    document.getElementById('share-popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+
+
+// Initialize EmailJS
+emailjs.init('VibeSphere'); // Replace 'your_user_id' with your actual EmailJS user ID
+  
+  // Handle Feedback Form
+  document.addEventListener('DOMContentLoaded', function () {
+    const feedbackForm = document.getElementById('feedback-form');
+  const feedbackText = document.getElementById('feedback-text');
+  const successMessage = document.getElementById('success-message');
+  
+  feedbackForm.addEventListener('submit', (event) => {
+    event.preventDefault();  // Prevents the default form submission behavior
+
+    const feedback = feedbackText.value.trim();
+    if (feedback) {
+      // Prepare email parameters
+      const emailParams = {
+        to_email: 'kittubhawani@gmail.com', // The recipient email
+        subject: 'Feedback', // Subject
+        body: feedback, // Feedback message
+      };
+
+      // Send feedback via EmailJS
+      emailjs.send('VibeSphere', 'template_tzlx1m4', emailParams)
+        .then((response) => {
+          console.log('Feedback sent successfully:', response);
+
+          // Clear the feedback text and show success message
+          feedbackText.value = '';
+          successMessage.style.display = 'block';
+
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 3000);
+        })
+        .catch((error) => {
+          console.error('Error sending feedback:', error);
+          alert('There was an error sending your feedback. Please try again.');
+        });
+    } else {
+      alert('Please enter your feedback before submitting.');
+    }
+  });
+});
+  </script>
   </body>
 </html>

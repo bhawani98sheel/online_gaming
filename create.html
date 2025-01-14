@@ -1,32 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doodle Canvas with Preloader and Header</title>
+  <style>
+    /* General Styles */
+    body {
+  background-image: url('./assets/images/doodle.jpg');
+  background-size: cover; /* Ensures it covers the entire background */
+  background-position: center;
+}
 
-  <head>
+    /* Preloader Styles */
+    .js-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .preloader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .preloader-inner .dot {
+      width: 20px;
+      height: 20px;
+      background-color: #007bff;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .preloader-inner .dots span {
+      width: 10px;
+      height: 10px;
+      background-color: #007bff;
+      border-radius: 50%;
+      margin: 5px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-    <meta charset="utf-8">
-    <meta name="author" content="templatemo">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    /* Header Styles */
+    .header-area {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px 0;
+    }
+    .header-area .logo img {
+      max-width: 80px;
+      border-radius: 50%;
+    }
+    .header-area nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-area .search-input input {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 2px solid #ccc;
+      outline: none;
+      font-size: 16px;
+    }
+    .header-area ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+    .header-area ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+    .header-area ul li a.active {
+      font-weight: bold;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <title>Liberty Template - Create NFT Page</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  </head>
-
+    /* Doodle Canvas */
+    .canvas-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    canvas {
+      border: 2px solid #333;
+      cursor: crosshair;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    }
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    button, input[type="color"] {
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    input[type="color"] {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
 <body>
 
-  <!-- ***** Preloader Start ***** -->
+  <!-- Preloader -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
@@ -37,251 +144,95 @@
       </div>
     </div>
   </div>
-  <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
+  <!-- Header -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
-                          <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                  
-                    <!-- ***** Search Start ***** -->
-                    <div class="search-input" style="margin-left: 100px; padding-top: 5px; display: flex; justify-content: center;">
-                      <form id="search" action="#">
-                        <div style="position: relative; width: 100%;">
-                          <input 
-                            type="text" 
-                            placeholder="Type Something" 
-                            id="searchText" 
-                            name="searchKeyword" 
-                            onkeyup="filterContent()" 
-                            style="
-                              padding: 10px 20px; 
-                              border-radius: 50px; 
-                              border: 2px solid #ccc; 
-                              outline: none; 
-                              font-size: 16px; 
-                              transition: border 0.3s ease;
-                              width: 250px;
-                            " 
-                            onfocus="this.style.borderColor='#007bff'" 
-                            onblur="this.style.borderColor='#ccc'"
-                            class="fa fa-search" 
-                            style="
-                              position: absolute; 
-                              right: 15px; 
-                              top: 50%; 
-                              transform: translateY(-50%); 
-                              font-size: 16px; 
-                              color: #aaa;
-                            "
-                          />
-                          
-                        </div>
-                      </form>
-                    </div>
-                    
-<!-- ***** Search End ***** -->
+      <nav>
+        <!-- Logo -->
+        <a href="index.html" class="logo" title="Go to Home">
+          <img src="assets/images/logo1.png" alt="Home Logo">
+        </a>
 
-<!-- Placeholder for results message -->
-<div id="resultMessage" style="margin-left: 100px; padding-top: 10px; font-size: 16px;"></div>
-
-<script>
-  const availableLinks = {
-    "br": "brain.html",
-    "sci": "science.html",
-    "mus": "music.html",
-    "vir": "virtual.html",
-    "ma": "math.html",
-    "glo": "global.html",
-    "sho": "shoot.html",
-    "rac": "race.html",
-    "go": "gosolo.html"
-  };
-
-  function filterContent() {
-    const searchText = document.getElementById("searchText").value.toLowerCase().trim();
-    const resultMessage = document.getElementById("resultMessage");
-
-    if (searchText) {
-      if (availableLinks[searchText]) {
-        // Redirect if game is found
-        window.location.href = availableLinks[searchText];
-      } else {
-        // Show "Not Found" message
-        resultMessage.innerHTML = `<span style="color: red;">Game "${searchText}" not found. Please try again.</span>`;
-      }
-    } else {
-      // Clear the message when the input is empty
-      resultMessage.innerHTML = "";
-    }
-  }
-</script>
-
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="brain.html">Mind Maze</a></li>
-                        <li><a href="Virtual.html">Virtual Frontiers</a></li>
-                        <li><a href="music.html">Rhythm Realms</a></li>
-                        <li><a href="science.html">SciQuest</a></li>
-                        <li><a href="about.html">About US</a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <div class="page-heading normal-space">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h6>Liberty NFT Market</h6>
-          <h2>Create Your NFT Now.</h2>
-          <span>Home > <a href="#">Create Yours</a></span>
-          <div class="buttons">
-            <div class="main-button">
-              <a href="explore.html">Explore Our Items</a>
-            </div>
-            <div class="border-button">
-              <a href="create.html">Create Your NFT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="item-details-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h2>Apply For <em>Your Item</em> Here.</h2>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-4">
-                <fieldset>
-                  <label for="title">Item Title</label>
-                  <input type="title" name="title" id="title" placeholder="Ex. Lyon King" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-4">
-                <fieldset>
-                  <label for="description">Description For Item</label>
-                  <input type="description" name="description" id="description" placeholder="Give us your idea" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-4">
-                <fieldset>
-                  <label for="username">Your Username</label>
-                  <input type="username" name="username" id="username" placeholder="Ex. @alansmithee" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <label for="price">Price Of Item</label>
-                  <input type="price" name="price" id="price" placeholder="Price depends on quality. Ex. 0.06 ETH" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <label for="royalities">Royalties</label>
-                  <input type="royalities" name="royalities" id="royalities" placeholder="Common royalties 1-25%" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-4">
-                <fieldset>
-                  <label for="file">Your File</label>
-                  <input type="file" id="file" name="myfiles[]" multiple />
-                </fieldset>
-              </div>
-              <div class="col-lg-8">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">Submit Your Applying</button>
-                </fieldset>
-              </div>
-            </div>
+        <!-- Search -->
+        <div class="search-input">
+          <form id="search" action="#">
+            <input type="text" placeholder="Type Something" id="searchText" name="searchKeyword" onkeyup="filterContent()" />
           </form>
         </div>
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h2>This Is <em>Your Item</em> Preview.</h2>
-          </div>
-        </div>
-        <div class="col-lg-7">
-          <div class="left-image">
-            <img src="assets/images/create-yours.jpg" alt="" style="border-radius: 20px;">
-          </div>
-        </div>
-        <div class="col-lg-5 align-self-center">
-          <h4>Dolores Haze Westworld Eye</h4>
-          <span class="author">
-            <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
-            <h6>Kataleya Smithee<br><a href="#">@kataleey</a></h6>
-          </span>
-          <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div class="row">
-            <div class="col-3">
-              <span class="bid">
-                Current Bid<br><strong>0.06 ETH</strong><br><em>($8055,35)</em>
-              </span>
-            </div>
-            <div class="col-4">
-              <span class="owner">
-                Owner<br><strong>Alan Smithee</strong><br><em>(@asmithee)</em>
-              </span>
-            </div>
-            <div class="col-5">
-              <span class="ends">
-                Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+
+        <!-- Navigation Menu -->
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="brain.html">Mind Maze</a></li>
+          <li><a href="Virtual.html">Virtual Frontiers</a></li>
+          <li><a href="music.html">Rhythm Realms</a></li>
+          <li><a href="science.html">SciQuest</a></li>
+          <li><a href="about.html">About US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Doodle Canvas -->
+  <div class="canvas-section">
+    <h1>Doodle Canvas</h1>
+    <canvas id="doodleCanvas" width="800" height="400"></canvas>
+    <div class="controls">
+      <button id="clearCanvas">Clear Canvas</button>
+      <button id="saveCanvas">Download Doodle</button>
+      <label for="colorPicker">Pick Color:</label>
+      <input type="color" id="colorPicker" value="#000000">
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
-          &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      document.getElementById('js-preloader').style.display = 'none';
+    });
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    // Canvas Drawing Logic
+    const canvas = document.getElementById("doodleCanvas");
+    const ctx = canvas.getContext("2d");
+    const clearButton = document.getElementById("clearCanvas");
+    const saveButton = document.getElementById("saveCanvas");
+    const colorPicker = document.getElementById("colorPicker");
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
+    let isDrawing = false;
+    let currentColor = "#000000";
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-  </body>
+    colorPicker.addEventListener("input", (e) => {
+      currentColor = e.target.value;
+      ctx.strokeStyle = currentColor;
+    });
+
+    canvas.addEventListener("mousedown", (e) => {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener("mousemove", (e) => {
+      if (isDrawing) {
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+      }
+    });
+
+    canvas.addEventListener("mouseup", () => isDrawing = false);
+    canvas.addEventListener("mouseout", () => isDrawing = false);
+
+    clearButton.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    saveButton.addEventListener("click", () => {
+      const link = document.createElement("a");
+      link.download = "doodle.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  </script>
+</body>
 </html>
