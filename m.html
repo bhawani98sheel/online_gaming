@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Instrument and Track Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    select, button {
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Music Instrument and Track Selector</h1>
+
+    <!-- Dropdown for selecting instrument -->
+    <label for="instrument">Select Instrument: </label>
+    <select id="instrument">
+      <option value="">Choose an instrument</option>
+      <option value="piano">Piano</option>
+      <option value="guitar">Guitar</option>
+      <option value="drums">Drums</option>
+      <option value="violin">Violin</option>
+    </select>
+    
+    <!-- Play and Save buttons -->
+    <button id="playButton" disabled>Play Music</button>
+    <button id="saveButton" disabled>Save Selection</button>
+
+    <!-- Audio player -->
+    <audio id="audioPlayer" controls></audio>
+
+    <!-- Message -->
+    <p id="message"></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const instrumentSelect = document.getElementById("instrument");
+      const playButton = document.getElementById("playButton");
+      const saveButton = document.getElementById("saveButton");
+      const audioPlayer = document.getElementById("audioPlayer");
+      const message = document.getElementById("message");
+
+      // Object holding music files for each instrument
+      const musicTracks = {
+        piano: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",  // Example piano music link
+        guitar: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",  // Example guitar music link
+        drums: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",  // Example drums music link
+        violin: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"  // Example violin music link
+      };
+
+      // Enable/Disable buttons based on instrument selection
+      instrumentSelect.addEventListener("change", () => {
+        const selectedInstrument = instrumentSelect.value;
+
+        if (selectedInstrument) {
+          playButton.disabled = false;
+          saveButton.disabled = false;
+          message.textContent = ""; // Clear any previous messages
+        } else {
+          playButton.disabled = true;
+          saveButton.disabled = true;
+          message.textContent = "Please select an instrument.";
+        }
+      });
+
+      // Play the selected instrument's music
+      playButton.addEventListener("click", () => {
+        const selectedInstrument = instrumentSelect.value;
+        if (selectedInstrument && musicTracks[selectedInstrument]) {
+          audioPlayer.src = musicTracks[selectedInstrument];
+          audioPlayer.play();
+        }
+      });
+
+      // Save the selection (simulated with a message for simplicity)
+      saveButton.addEventListener("click", () => {
+        const selectedInstrument = instrumentSelect.value;
+        if (selectedInstrument) {
+          message.textContent = `You have saved ${selectedInstrument} music!`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

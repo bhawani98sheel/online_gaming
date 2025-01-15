@@ -3,71 +3,44 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="templatemo">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-  
-  <title>VibeSphere - Entertain, Educate, Energize</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comic Strip Creator</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #007bff;
-    }
-
-    .comic-container {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    canvas {
-      border: 2px solid #ccc;
-      background-color: #fff;
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      margin-top: 30px;
+    h1 {
+      margin-top: 20px;
     }
 
     .controls {
       margin-top: 20px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
     .controls input,
     .controls select,
     .controls button {
-      padding: 12px;
-      margin: 8px 0;
-      width: 100%;
+      padding: 10px;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid #ddd;
+      width: 300px;
     }
 
     .controls button {
-      background-color: #4CAF50;
+      background-color: #4caf50;
       color: white;
-      border: none;
       cursor: pointer;
     }
 
@@ -75,108 +48,37 @@
       background-color: #45a049;
     }
 
-    .color-picker {
-      width: 60px;
-      height: 40px;
-      border-radius: 5px;
-      margin-right: 20px;
+    canvas {
+      margin-top: 20px;
+      border: 2px solid #ccc;
+      background-color: white;
     }
 
-    .form-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 70%;
-    }
-
-  
-
-
-
-    .footer-area {
-      background-color: #f8f9fa;
-      padding: 40px 0;
+    .footer {
+      margin-top: 20px;
       text-align: center;
-    }
-
-    /* Preloader styles (optional, uncomment to use) */
-    .preloader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: rgba(255, 255, 255, 0.8);
     }
   </style>
 </head>
 
 <body>
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo" title="Go to Home" style="position: absolute; top: 10px; left: 10px;">
-              <img src="assets/images/logo1.png" alt="Home Logo" style="max-width: 80px; border-radius: 50%;">
-            </a>
-            <!-- ***** Logo End ***** -->
-
-            <!-- Navigation Menu -->
-           
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <!-- ***** Comic Strip Section Start ***** -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10">
-        <div class="comic-container">
-          <h1 class="text-center mb-4">Create Your Comic Strip 🖼️</h1>
-
-          <!-- Controls Container (Aligning at the top) -->
-          <div class="controls">
-            <input type="text" id="textInput" placeholder="Enter text for your comic" class="form-control mb-3" />
-
-            <input type="file" id="imageUpload" accept="image/*" class="form-control mb-3">
-
-            <select id="shapeSelect" class="form-control mb-3">
-              <option value="none">Choose Shape</option>
-              <option value="chat">Chat Bubble</option>
-              <option value="cloud">Cloud Shape</option>
-            </select>
-
-            <!-- Color Picker and Add Text Button -->
-            <div class="form-group">
-              <input type="color" class="color-picker" id="colorPicker" value="#000000">
-              <button id="addTextBtn" class="btn btn-primary mb-3 ml-3">Add Text</button>
-            </div>
-
-            <button id="downloadBtn" class="btn btn-success mb-3">Download Comic</button>
-          </div>
-
-          <!-- Comic Canvas -->
-          <canvas id="comicCanvas" width="800" height="600" class="border"></canvas>
-        </div>
-      </div>
-    </div>
+  <h1>Comic Strip Creator</h1>
+  <div class="controls">
+    <input type="text" id="textInput" placeholder="Enter text for your comic" />
+    <input type="file" id="imageUpload" accept="image/*" />
+    <select id="shapeSelect">
+      <option value="none">Choose Shape</option>
+      <option value="chatBubble">Speech Bubble</option>
+      <option value="thoughtCloud">Thought Cloud</option>
+    </select>
+    <input type="color" id="colorPicker" value="#000000" />
+    <button id="addTextBtn">Add Text</button>
+    <button id="downloadBtn">Download Comic</button>
   </div>
-  <!-- ***** Comic Strip Section End ***** -->
-
-  <!-- Footer Area -->
-  <footer class="footer-area">
-    <p>&copy; 2025 VibeSphere - Entertain, Educate, Energize</p>
-  </footer>
+  <canvas id="comicCanvas" width="800" height="600"></canvas>
+  <div class="footer">
+    <p>&copy; 2025 Comic Creator</p>
+  </div>
 
   <script>
     const canvas = document.getElementById('comicCanvas');
@@ -191,13 +93,14 @@
     let comicElements = [];
     let draggingElement = null;
     let offsetX, offsetY;
+    let selectedColor = "#000000";
 
-    let selectedColor = "#000000"; // Default color for text and shapes
-
+    // Color picker
     colorPicker.addEventListener("input", (e) => {
       selectedColor = e.target.value;
     });
 
+    // Add text
     addTextBtn.addEventListener('click', () => {
       const text = textInput.value;
       if (text) {
@@ -206,13 +109,14 @@
           text: text,
           x: 50,
           y: 50,
-          color: selectedColor // Apply selected color for text
+          color: selectedColor,
         });
         drawComic();
-        textInput.value = '';  // Clear text input
+        textInput.value = '';
       }
     });
 
+    // Upload image
     imageUpload.addEventListener('change', (event) => {
       const file = event.target.files[0];
       if (file) {
@@ -229,6 +133,36 @@
       }
     });
 
+    // Add shapes
+    shapeSelect.addEventListener('change', () => {
+      if (shapeSelect.value === 'chatBubble') {
+        comicElements.push({
+          type: 'chatBubble',
+          x: 150,
+          y: 150,
+          width: 200,
+          height: 100,
+          color: selectedColor,
+        });
+      } else if (shapeSelect.value === 'thoughtCloud') {
+        comicElements.push({
+          type: 'thoughtCloud',
+          x: 200,
+          y: 200,
+          radius: 30,
+          color: selectedColor,
+          bubbles: [
+            { offsetX: 0, offsetY: 0, radius: 30 },
+            { offsetX: 50, offsetY: -20, radius: 36 },
+            { offsetX: 90, offsetY: 0, radius: 45 },
+          ],
+        });
+      }
+      shapeSelect.value = 'none';
+      drawComic();
+    });
+
+    // Download comic
     downloadBtn.addEventListener('click', () => {
       const link = document.createElement('a');
       link.download = 'comic_strip.png';
@@ -236,39 +170,52 @@
       link.click();
     });
 
-    shapeSelect.addEventListener('change', () => {
-      if (shapeSelect.value !== "none") {
-        addShape(shapeSelect.value);
-      }
-    });
-
+    // Dragging elements
     canvas.addEventListener('mousedown', (e) => {
       const mouseX = e.offsetX;
       const mouseY = e.offsetY;
 
-      for (let i = 0; i < comicElements.length; i++) {
+      for (let i = comicElements.length - 1; i >= 0; i--) {
         const element = comicElements[i];
         if (element.type === 'text') {
           const textWidth = ctx.measureText(element.text).width;
           const textHeight = 20;
-
           if (mouseX >= element.x && mouseX <= element.x + textWidth &&
               mouseY >= element.y - textHeight && mouseY <= element.y) {
             draggingElement = element;
             offsetX = mouseX - element.x;
             offsetY = mouseY - element.y;
-            break;
+            return;
           }
         } else if (element.type === 'image') {
           const imgWidth = 200;
           const imgHeight = 150;
-
           if (mouseX >= element.x && mouseX <= element.x + imgWidth &&
               mouseY >= element.y && mouseY <= element.y + imgHeight) {
             draggingElement = element;
             offsetX = mouseX - element.x;
             offsetY = mouseY - element.y;
-            break;
+            return;
+          }
+        } else if (element.type === 'chatBubble') {
+          if (mouseX >= element.x && mouseX <= element.x + element.width &&
+              mouseY >= element.y && mouseY <= element.y + element.height) {
+            draggingElement = element;
+            offsetX = mouseX - element.x;
+            offsetY = mouseY - element.y;
+            return;
+          }
+        } else if (element.type === 'thoughtCloud') {
+          for (let bubble of element.bubbles) {
+            const bubbleCenterX = element.x + bubble.offsetX;
+            const bubbleCenterY = element.y + bubble.offsetY;
+            const distance = Math.hypot(mouseX - bubbleCenterX, mouseY - bubbleCenterY);
+            if (distance <= bubble.radius) {
+              draggingElement = element;
+              offsetX = mouseX - element.x;
+              offsetY = mouseY - element.y;
+              return;
+            }
           }
         }
       }
@@ -276,11 +223,8 @@
 
     canvas.addEventListener('mousemove', (e) => {
       if (draggingElement) {
-        const mouseX = e.offsetX;
-        const mouseY = e.offsetY;
-
-        draggingElement.x = mouseX - offsetX;
-        draggingElement.y = mouseY - offsetY;
+        draggingElement.x = e.offsetX - offsetX;
+        draggingElement.y = e.offsetY - offsetY;
         drawComic();
       }
     });
@@ -290,44 +234,44 @@
     });
 
     function drawComic() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous content
-
-      comicElements.forEach(element => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      comicElements.forEach((element) => {
         if (element.type === 'text') {
           ctx.font = '20px Arial';
           ctx.fillStyle = element.color;
           ctx.fillText(element.text, element.x, element.y);
         } else if (element.type === 'image') {
           ctx.drawImage(element.image, element.x, element.y, 200, 150);
+        } else if (element.type === 'chatBubble') {
+          ctx.fillStyle = element.color;
+          ctx.beginPath();
+          ctx.moveTo(element.x + 20, element.y + element.height);
+          ctx.lineTo(element.x + 40, element.y + element.height + 20);
+          ctx.lineTo(element.x + 60, element.y + element.height);
+          ctx.quadraticCurveTo(element.x + element.width, element.y + element.height, element.x + element.width, element.y + element.height / 2);
+          ctx.quadraticCurveTo(element.x + element.width, element.y, element.x + element.width / 2, element.y);
+          ctx.quadraticCurveTo(element.x, element.y, element.x, element.y + element.height / 2);
+          ctx.quadraticCurveTo(element.x, element.y + element.height, element.x + 20, element.y + element.height);
+          ctx.closePath();
+          ctx.fill();
+        } else if (element.type === 'thoughtCloud') {
+          ctx.fillStyle = element.color;
+          ctx.beginPath();
+          element.bubbles.forEach((bubble) => {
+            ctx.moveTo(element.x + bubble.offsetX + bubble.radius, element.y + bubble.offsetY);
+            ctx.arc(
+              element.x + bubble.offsetX,
+              element.y + bubble.offsetY,
+              bubble.radius,
+              0,
+              Math.PI * 2
+            );
+          });
+          ctx.fill();
         }
       });
     }
-
-    function addShape(shapeType) {
-      if (shapeType === 'chat') {
-        comicElements.push({
-          type: 'shape',
-          x: 100,
-          y: 100,
-          width: 300,
-          height: 150,
-          color: selectedColor
-        });
-        drawComic();
-      } else if (shapeType === 'cloud') {
-        comicElements.push({
-          type: 'shape',
-          x: 200,
-          y: 200,
-          width: 300,
-          height: 150,
-          color: selectedColor
-        });
-        drawComic();
-      }
-    }
   </script>
-
 </body>
 
 </html>
